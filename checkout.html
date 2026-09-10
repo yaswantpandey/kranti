@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Checkout - Kranti Furnitures &amp; Electronics</title>
+  <meta name="description" content="Complete your order securely with Kranti Furnitures &amp; Electronics. Free delivery across Prayagraj." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "inverse-on-surface": "#eaf1ff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#2b1700",
+            "on-primary-fixed": "#001b3c",
+            "background": "#f8f9ff",
+            "on-surface": "#121c2a",
+            "inverse-surface": "#27313f",
+            "surface-container-high": "#dee9fc",
+            "on-tertiary-container": "#c6955e",
+            "inverse-primary": "#adc7f7",
+            "on-primary-fixed-variant": "#2d476f",
+            "tertiary-fixed": "#ffddba",
+            "on-secondary-fixed-variant": "#454747",
+            "on-surface-variant": "#43474e",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#c6c7c6",
+            "on-secondary-container": "#636564",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#4f2e00",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#d9e3f6",
+            "tertiary-fixed-dim": "#f2bc82",
+            "outline-variant": "#c4c6cf",
+            "primary": "#002045",
+            "surface": "#f8f9ff",
+            "secondary-container": "#e2e2e2",
+            "surface-container-low": "#eff4ff",
+            "secondary": "#5d5f5e",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container": "#e6eeff",
+            "on-error": "#ffffff",
+            "surface-bright": "#f8f9ff",
+            "secondary-fixed": "#e2e2e2",
+            "on-primary-container": "#86a0cd",
+            "surface-variant": "#d9e3f6",
+            "surface-tint": "#455f88",
+            "surface-dim": "#d0dbed",
+            "outline": "#74777f",
+            "on-background": "#121c2a",
+            "on-tertiary-fixed-variant": "#633f0f",
+            "on-secondary-fixed": "#1a1c1c",
+            "primary-fixed": "#d6e3ff",
+            "primary-container": "#1a365d",
+            "tertiary": "#321b00",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#adc7f7",
+            "discount": "#10b981",
+            "accent": "#ff9800"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "section-gap": "5rem",
+            "grid-gutter": "1.5rem",
+            "base-unit": "4px",
+            "card-padding": "1rem",
+            "container-max": "1280px"
+          },
+          fontFamily: {
+            "title-lg": ["Inter", "sans-serif"],
+            "headline-lg-mobile": ["Public Sans", "sans-serif"],
+            "price-display": ["Public Sans", "sans-serif"],
+            "headline-md": ["Public Sans", "sans-serif"],
+            "headline-xl": ["Public Sans", "sans-serif"],
+            "headline-lg": ["Public Sans", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+
+  <!-- TopAppBar (Focused Transactional Header matching Stitch) -->
+  <header class="sticky top-0 z-50 flex flex-col w-full bg-surface px-4 md:px-section-gap max-w-container-max mx-auto border-b border-outline-variant/60 shadow-sm py-4">
+    <div class="flex items-center justify-between w-full">
+      <a class="font-headline-lg text-lg md:text-2xl font-bold text-primary flex items-center gap-2" href="index.html">
+        <span class="material-symbols-outlined text-primary">storefront</span>
+        <span>Kranti Furnitures &amp; Electronics</span>
+      </a>
+
+      <div class="flex items-center gap-2 text-primary bg-surface-container-high px-3 py-1.5 rounded-full text-xs font-bold">
+        <span class="material-symbols-outlined text-base filled">lock</span>
+        <span>256-Bit SSL Secure Checkout</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-grow w-full max-w-container-max mx-auto px-4 md:px-section-gap py-8 md:py-12">
+    
+    <!-- Bento Grid Container -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-grid-gutter">
+      
+      <!-- Left Column: Checkout Multi-Steps -->
+      <div class="lg:col-span-8 flex flex-col gap-6">
+        
+        <!-- Progress Steps Bar -->
+        <div class="bg-surface-container-lowest rounded-2xl p-4 md:p-6 shadow-sm border border-outline-variant/40">
+          <div class="flex items-center justify-between">
+            
+            <!-- Step 1 Indicator -->
+            <div id="step-indicator-1" class="flex flex-col items-center gap-1.5">
+              <div class="step-num w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm shadow-sm ring-4 ring-primary/20">1</div>
+              <span class="step-label text-xs font-bold text-primary">Shipping</span>
+            </div>
+            
+            <div class="flex-grow h-px bg-outline-variant/60 mx-2 md:mx-4"></div>
+
+            <!-- Step 2 Indicator -->
+            <div id="step-indicator-2" class="flex flex-col items-center gap-1.5">
+              <div class="step-num w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-semibold text-sm">2</div>
+              <span class="step-label text-xs font-medium text-on-surface-variant">Delivery</span>
+            </div>
+
+            <div class="flex-grow h-px bg-outline-variant/60 mx-2 md:mx-4"></div>
+
+            <!-- Step 3 Indicator -->
+            <div id="step-indicator-3" class="flex flex-col items-center gap-1.5">
+              <div class="step-num w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-semibold text-sm">3</div>
+              <span class="step-label text-xs font-medium text-on-surface-variant">Payment</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- STEP 1: Shipping Address Container -->
+        <div id="step-1-shipping" class="bg-surface-container-lowest rounded-2xl p-6 md:p-8 shadow-sm border border-outline-variant/40 transition-all">
+          <h2 class="font-headline-md text-xl md:text-2xl font-bold text-primary mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-2xl">local_shipping</span>
+            <span>1. Shipping Address</span>
+          </h2>
+
+          <div class="step-content">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="md:col-span-2">
+                <label class="block text-xs font-bold text-on-surface mb-1">Full Name *</label>
+                <input id="checkout-name" class="w-full text-sm rounded-lg border border-outline-variant px-4 py-2.5 bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium" placeholder="Enter recipient's full name" type="text" required />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">Mobile Number *</label>
+                <input id="checkout-phone" class="w-full text-sm rounded-lg border border-outline-variant px-4 py-2.5 bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium" placeholder="+91 98765 43210" type="tel" required />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">Email Address (Optional)</label>
+                <input id="checkout-email" class="w-full text-sm rounded-lg border border-outline-variant px-4 py-2.5 bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium" placeholder="For order tracking updates" type="email" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">Pincode *</label>
+                <input id="checkout-pincode" class="w-full text-sm rounded-lg border border-outline-variant px-4 py-2.5 bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium" placeholder="211001" type="text" maxlength="6" required />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">City / District</label>
+                <input id="checkout-city" class="w-full text-sm rounded-lg border border-outline-variant px-4 py-2.5 bg-surface-container-high cursor-not-allowed font-medium text-on-surface" readonly type="text" value="Prayagraj, Uttar Pradesh" />
+              </div>
+
+              <div class="md:col-span-2">
+                <label class="block text-xs font-bold text-on-surface mb-1">Detailed Address (House No, Street, Landmark) *</label>
+                <textarea id="checkout-address" class="w-full text-sm rounded-lg border border-outline-variant px-4 py-2.5 bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary transition-all h-24 resize-none font-medium" placeholder="Enter complete doorstep address in Prayagraj" required></textarea>
+              </div>
+
+              <div class="md:col-span-2 mt-2 flex justify-end">
+                <button id="continue-to-delivery-btn" class="bg-primary text-on-primary px-8 py-3 rounded-lg text-xs md:text-sm font-bold hover:bg-primary-container transition-all shadow-sm w-full md:w-auto" type="button">
+                  Continue to Delivery →
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- STEP 2: Delivery Speed Container -->
+        <div id="step-2-delivery" class="bg-surface-container-lowest rounded-2xl p-6 md:p-8 shadow-sm border border-outline-variant/40 opacity-60 pointer-events-none transition-all">
+          <h2 class="font-headline-md text-xl md:text-2xl font-bold text-primary mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-2xl">inventory_2</span>
+            <span>2. Delivery Speed &amp; Options</span>
+          </h2>
+
+          <div class="step-content hidden space-y-4">
+            <label class="flex items-center gap-3 p-4 rounded-xl border border-primary bg-primary-container/5 cursor-pointer">
+              <input type="radio" name="delivery-speed" value="Standard Free Delivery" checked class="text-primary focus:ring-primary" />
+              <div class="flex-grow">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-primary">Standard Free Delivery</span>
+                  <span class="text-xs font-bold text-discount">FREE</span>
+                </div>
+                <p class="text-xs text-on-surface-variant mt-0.5">Delivered in 2-3 business days with free doorstep room placement.</p>
+              </div>
+            </label>
+
+            <label class="flex items-center gap-3 p-4 rounded-xl border border-outline-variant/60 hover:border-primary bg-surface-container-lowest cursor-pointer transition-colors">
+              <input type="radio" name="delivery-speed" value="Express Tomorrow Delivery" class="text-primary focus:ring-primary" />
+              <div class="flex-grow">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-on-surface">Express Next-Day Delivery</span>
+                  <span class="text-xs font-bold text-primary">₹199</span>
+                </div>
+                <p class="text-xs text-on-surface-variant mt-0.5">Guaranteed doorstep arrival by tomorrow 9:00 PM in Prayagraj.</p>
+              </div>
+            </label>
+
+            <div class="flex justify-between items-center mt-6 pt-4 border-t border-outline-variant/30">
+              <button id="back-to-shipping-btn" class="text-xs font-bold text-on-surface-variant hover:text-primary" type="button">
+                ← Back to Shipping
+              </button>
+              <button id="continue-to-payment-btn" class="bg-primary text-on-primary px-8 py-3 rounded-lg text-xs md:text-sm font-bold hover:bg-primary-container transition-all shadow-sm" type="button">
+                Continue to Payment →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: Payment Options Container -->
+        <div id="step-3-payment" class="bg-surface-container-lowest rounded-2xl p-6 md:p-8 shadow-sm border border-outline-variant/40 opacity-60 pointer-events-none transition-all mb-8">
+          <h2 class="font-headline-md text-xl md:text-2xl font-bold text-primary mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-2xl">payments</span>
+            <span>3. Payment Method</span>
+          </h2>
+
+          <div class="step-content hidden space-y-6">
+            <!-- Payment Method Tabs -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <button type="button" data-pay-tab="upi" class="p-3 rounded-xl border border-primary bg-primary-container/10 text-primary font-bold text-xs flex flex-col items-center gap-1 transition-all ring-1 ring-primary">
+                <span class="material-symbols-outlined text-xl">qr_code_2</span>
+                <span>UPI / QR</span>
+              </button>
+              
+              <button type="button" data-pay-tab="card" class="p-3 rounded-xl border border-outline-variant bg-surface-container-lowest text-on-surface font-semibold text-xs flex flex-col items-center gap-1 hover:border-primary transition-all">
+                <span class="material-symbols-outlined text-xl">credit_card</span>
+                <span>Card</span>
+              </button>
+
+              <button type="button" data-pay-tab="netbanking" class="p-3 rounded-xl border border-outline-variant bg-surface-container-lowest text-on-surface font-semibold text-xs flex flex-col items-center gap-1 hover:border-primary transition-all">
+                <span class="material-symbols-outlined text-xl">account_balance</span>
+                <span>Net Banking</span>
+              </button>
+
+              <button type="button" data-pay-tab="cod" class="p-3 rounded-xl border border-outline-variant bg-surface-container-lowest text-on-surface font-semibold text-xs flex flex-col items-center gap-1 hover:border-primary transition-all">
+                <span class="material-symbols-outlined text-xl">store</span>
+                <span>Pay at Store</span>
+              </button>
+            </div>
+
+            <!-- View: UPI Payment -->
+            <div id="pay-view-upi" class="pay-method-view p-5 rounded-xl bg-surface border border-outline-variant/40 space-y-4">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-3xl text-primary">qr_code_scanner</span>
+                <div>
+                  <h4 class="font-bold text-sm text-primary">Instant UPI Payment</h4>
+                  <p class="text-xs text-on-surface-variant">Pay via Google Pay, PhonePe, Paytm, or any BHIM UPI app.</p>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">Enter UPI ID / VPA</label>
+                <input type="text" placeholder="username@okhdfcbank" class="w-full text-xs px-4 py-2.5 rounded-lg border border-outline-variant bg-surface-container-lowest focus:border-primary" />
+              </div>
+            </div>
+
+            <!-- View: Card Payment -->
+            <div id="pay-view-card" class="pay-method-view hidden p-5 rounded-xl bg-surface border border-outline-variant/40 space-y-4">
+              <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">Card Number</label>
+                <input type="text" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" class="w-full text-xs px-4 py-2.5 rounded-lg border border-outline-variant bg-surface-container-lowest focus:border-primary" />
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-bold text-on-surface mb-1">Expiry Date</label>
+                  <input type="text" placeholder="MM / YY" maxlength="5" class="w-full text-xs px-4 py-2.5 rounded-lg border border-outline-variant bg-surface-container-lowest focus:border-primary" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-on-surface mb-1">CVV / CVC</label>
+                  <input type="password" placeholder="123" maxlength="4" class="w-full text-xs px-4 py-2.5 rounded-lg border border-outline-variant bg-surface-container-lowest focus:border-primary" />
+                </div>
+              </div>
+            </div>
+
+            <!-- View: Netbanking -->
+            <div id="pay-view-netbanking" class="pay-method-view hidden p-5 rounded-xl bg-surface border border-outline-variant/40 space-y-3">
+              <label class="block text-xs font-bold text-on-surface mb-1">Select Bank</label>
+              <select class="w-full text-xs px-4 py-2.5 rounded-lg border border-outline-variant bg-surface-container-lowest focus:border-primary">
+                <option>State Bank of India (SBI)</option>
+                <option>HDFC Bank</option>
+                <option>ICICI Bank</option>
+                <option>Punjab National Bank</option>
+                <option>Axis Bank</option>
+              </select>
+            </div>
+
+            <!-- View: Pay at Store -->
+            <div id="pay-view-cod" class="pay-method-view hidden p-5 rounded-xl bg-surface border border-outline-variant/40 space-y-2">
+              <h4 class="font-bold text-xs text-primary">Pay upon Doorstep Delivery or at Prayagraj Showroom</h4>
+              <p class="text-xs text-on-surface-variant">Our delivery associate will accept cash, UPI QR scan, or card swipe upon safe delivery.</p>
+            </div>
+
+            <!-- Actions Bar -->
+            <div class="flex justify-between items-center pt-4 border-t border-outline-variant/30">
+              <button id="back-to-delivery-btn" class="text-xs font-bold text-on-surface-variant hover:text-primary" type="button">
+                ← Back to Delivery
+              </button>
+              <button id="place-order-btn" class="bg-on-tertiary-container hover:bg-[#b0824e] text-on-primary px-8 py-3.5 rounded-lg text-xs md:text-sm font-bold transition-all shadow-md active:scale-95 flex items-center gap-2" type="button">
+                <span class="material-symbols-outlined text-base font-bold">check_circle</span>
+                <span>Confirm &amp; Place Order</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Sticky Order Summary Sidebar -->
+      <div class="lg:col-span-4">
+        <div class="sticky top-24 bg-surface-container-lowest rounded-2xl p-6 shadow-sm flex flex-col gap-6 border border-outline-variant/40">
+          <h3 class="font-headline-md text-xl font-bold text-primary border-b border-outline-variant/40 pb-4">
+            Order Summary
+          </h3>
+
+          <!-- Items Ordered Mini List -->
+          <div id="checkout-items-list" class="flex flex-col gap-3 max-h-64 overflow-y-auto pr-1">
+            <!-- Populated by checkout.js -->
+          </div>
+
+          <!-- Price Breakdown -->
+          <div class="border-t border-outline-variant/40 pt-4 flex flex-col gap-2.5 text-xs text-on-surface-variant font-medium">
+            <div class="flex justify-between">
+              <span>Items Subtotal</span>
+              <span id="checkout-subtotal" class="font-bold text-on-surface">₹0</span>
+            </div>
+            <div class="flex justify-between hidden text-discount font-bold">
+              <span>Coupon Savings</span>
+              <span id="checkout-discount">- ₹0</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Delivery Charges</span>
+              <span id="checkout-delivery" class="font-bold text-discount">FREE</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Taxes (GST)</span>
+              <span>Included</span>
+            </div>
+          </div>
+
+          <!-- Grand Total -->
+          <div class="border-t border-outline-variant/40 pt-4 flex justify-between items-baseline">
+            <span class="font-bold text-sm text-on-surface">Total Payable</span>
+            <span id="checkout-total" class="font-headline text-2xl font-extrabold text-primary">₹0</span>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col gap-2 text-xs text-on-surface-variant font-medium">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-base">verified_user</span>
+              <span>100% Safe &amp; Secure Payments</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-base">support_agent</span>
+              <span>24/7 Showroom Assistance</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Simplified Transactional Footer -->
+  <footer class="w-full py-6 px-4 border-t border-outline-variant/40 bg-surface-container-highest mt-auto">
+    <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-on-surface-variant text-center md:text-left">
+      <p>© 2024 Kranti Furnitures &amp; Electronics, Prayagraj. All rights reserved.</p>
+      <div class="flex gap-4">
+        <a class="hover:underline" href="#">Privacy Policy</a>
+        <a class="hover:underline" href="#">Terms of Service</a>
+        <a class="hover:underline" href="#">Return Guidelines</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/checkout.js"></script>
+</body>
+</html>

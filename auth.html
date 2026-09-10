@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In &amp; Register - Kranti Furnitures &amp; Electronics Prayagraj</title>
+  <meta name="description" content="Sign in or register for an account with Kranti Furnitures &amp; Electronics Prayagraj." />
+  <meta name="robots" content="noindex, follow" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "inverse-on-surface": "#eaf1ff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#2b1700",
+            "on-primary-fixed": "#001b3c",
+            "background": "#f8f9ff",
+            "on-surface": "#121c2a",
+            "inverse-surface": "#27313f",
+            "surface-container-high": "#dee9fc",
+            "on-tertiary-container": "#c6955e",
+            "inverse-primary": "#adc7f7",
+            "on-primary-fixed-variant": "#2d476f",
+            "tertiary-fixed": "#ffddba",
+            "on-secondary-fixed-variant": "#454747",
+            "on-surface-variant": "#43474e",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#c6c7c6",
+            "on-secondary-container": "#636564",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#4f2e00",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#d9e3f6",
+            "tertiary-fixed-dim": "#f2bc82",
+            "outline-variant": "#c4c6cf",
+            "primary": "#002045",
+            "surface": "#f8f9ff",
+            "secondary-container": "#e2e2e2",
+            "surface-container-low": "#eff4ff",
+            "secondary": "#5d5f5e",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container": "#e6eeff",
+            "on-error": "#ffffff",
+            "surface-bright": "#f8f9ff",
+            "secondary-fixed": "#e2e2e2",
+            "on-primary-container": "#86a0cd",
+            "surface-variant": "#d9e3f6",
+            "surface-tint": "#455f88",
+            "surface-dim": "#d0dbed",
+            "outline": "#74777f",
+            "on-background": "#121c2a",
+            "on-tertiary-fixed-variant": "#633f0f",
+            "on-secondary-fixed": "#1a1c1c",
+            "primary-fixed": "#d6e3ff",
+            "primary-container": "#1a365d",
+            "tertiary": "#321b00",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#adc7f7",
+            "discount": "#10b981",
+            "accent": "#ff9800"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "section-gap": "5rem",
+            "grid-gutter": "1.5rem",
+            "base-unit": "4px",
+            "card-padding": "1rem",
+            "container-max": "1280px"
+          },
+          fontFamily: {
+            "title-lg": ["Inter", "sans-serif"],
+            "headline-lg-mobile": ["Public Sans", "sans-serif"],
+            "price-display": ["Public Sans", "sans-serif"],
+            "headline-md": ["Public Sans", "sans-serif"],
+            "headline-xl": ["Public Sans", "sans-serif"],
+            "headline-lg": ["Public Sans", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-background min-h-screen flex flex-col font-body-md text-on-background">
+
+  <!-- Simple Navigation Bar -->
+  <header class="p-4 border-b border-outline-variant/40 bg-surface">
+    <div class="max-w-container-max mx-auto flex items-center justify-between">
+      <a class="font-headline-lg text-lg md:text-xl font-bold text-primary flex items-center gap-2" href="index.html">
+        <span class="material-symbols-outlined text-primary text-2xl">storefront</span>
+        <span>Kranti Furnitures &amp; Electronics</span>
+      </a>
+
+      <a href="index.html" class="text-xs font-bold text-on-surface-variant hover:text-primary flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>
+        <span>Back to Store</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Auth Container -->
+  <main class="flex-grow flex items-center justify-center p-4 py-8 md:py-12">
+    
+    <div class="bg-surface-container-lowest rounded-2xl shadow-lg w-full max-w-md overflow-hidden border border-outline-variant/40 animate-fade-in">
+      
+      <!-- Brand Header -->
+      <div class="p-6 text-center border-b border-outline-variant/40 bg-surface-container-low">
+        <div class="w-12 h-12 rounded-full bg-surface-container-high text-primary flex items-center justify-center mx-auto mb-2">
+          <span class="material-symbols-outlined text-2xl">lock</span>
+        </div>
+        <h1 class="font-headline-md text-xl font-bold text-primary">Kranti Digital Showroom</h1>
+        <p class="text-xs text-on-surface-variant mt-0.5">Furnitures &amp; Electronics • Prayagraj</p>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="flex border-b border-outline-variant/40">
+        <button id="tab-login" class="flex-1 py-3.5 text-xs md:text-sm font-bold text-primary border-b-2 border-primary bg-surface transition-colors">
+          Sign In
+        </button>
+        <button id="tab-register" class="flex-1 py-3.5 text-xs md:text-sm font-medium text-on-surface-variant bg-surface-container-lowest hover:bg-surface transition-colors">
+          Create Account
+        </button>
+      </div>
+
+      <!-- Content Area -->
+      <div class="p-6">
+        
+        <!-- View 1: Login -->
+        <div id="view-login" class="space-y-4">
+          <form id="login-form" class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-on-surface mb-1" for="login-identifier">Mobile Number or Email</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">person</span>
+                <input id="login-identifier" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg text-xs md:text-sm font-medium focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter 10-digit mobile or email" required type="text" value="+91 98765 43210" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-on-surface mb-1" for="login-password">Password</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">lock</span>
+                <input id="login-password" class="w-full pl-10 pr-10 py-2.5 border border-outline-variant rounded-lg text-xs md:text-sm font-medium focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter your password" required type="password" value="kranti123" />
+                <button data-toggle-password="login-password" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary" type="button">
+                  <span class="material-symbols-outlined text-lg">visibility</span>
+                </button>
+              </div>
+              <div class="text-right mt-1.5">
+                <a class="text-xs font-bold text-primary hover:underline" href="#">Forgot Password?</a>
+              </div>
+            </div>
+
+            <button class="w-full bg-primary text-on-primary text-xs md:text-sm font-bold py-3 rounded-lg hover:bg-primary-container transition-colors shadow-sm flex justify-center items-center gap-2 active:scale-95" type="submit">
+              <span>Sign In with OTP Verification</span>
+              <span class="material-symbols-outlined text-base font-bold">arrow_forward</span>
+            </button>
+          </form>
+
+          <!-- Divider -->
+          <div class="relative flex items-center justify-center my-4">
+            <span class="absolute w-full border-t border-outline-variant/40"></span>
+            <span class="relative bg-surface-container-lowest px-3 text-xs text-on-surface-variant font-medium">Or continue with</span>
+          </div>
+
+          <!-- Google Social Button -->
+          <button id="google-login-btn" class="w-full flex items-center justify-center gap-2 py-2.5 border border-outline-variant rounded-lg text-xs font-bold text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+            <span class="font-bold text-sm text-primary">G</span>
+            <span>Sign In with Google</span>
+          </button>
+        </div>
+
+        <!-- View 2: Registration -->
+        <div id="view-register" class="hidden space-y-4">
+          <form id="register-form" class="space-y-3">
+            <div>
+              <label class="block text-xs font-bold text-on-surface mb-1" for="reg-name">Full Name</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">badge</span>
+                <input id="reg-name" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg text-xs md:text-sm font-medium focus:border-primary" placeholder="e.g. Ramesh Kumar" required type="text" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-on-surface mb-1" for="reg-mobile">Mobile Number</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">phone_iphone</span>
+                <input id="reg-mobile" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg text-xs md:text-sm font-medium focus:border-primary" placeholder="10-digit mobile number" required type="tel" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-on-surface mb-1" for="reg-email">Email Address</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">mail</span>
+                <input id="reg-email" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg text-xs md:text-sm font-medium focus:border-primary" placeholder="name@example.com" required type="email" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-on-surface mb-1" for="reg-password">Create Password</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">lock</span>
+                <input id="reg-password" class="w-full pl-10 pr-10 py-2.5 border border-outline-variant rounded-lg text-xs md:text-sm font-medium focus:border-primary" placeholder="Minimum 6 characters" required type="password" />
+                <button data-toggle-password="reg-password" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary" type="button">
+                  <span class="material-symbols-outlined text-lg">visibility</span>
+                </button>
+              </div>
+            </div>
+
+            <button class="w-full mt-4 bg-primary text-on-primary text-xs md:text-sm font-bold py-3 rounded-lg hover:bg-primary-container transition-colors shadow-sm" type="submit">
+              Create Account
+            </button>
+          </form>
+        </div>
+
+        <!-- View 3: OTP Verification -->
+        <div id="view-otp" class="hidden space-y-5 animate-scale-in">
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-surface-container-high rounded-full mb-3 text-primary">
+              <span class="material-symbols-outlined text-2xl">sms</span>
+            </div>
+            <h2 class="font-headline-md text-lg font-bold text-on-surface">Verify Mobile Number</h2>
+            <p class="text-xs text-on-surface-variant mt-1">
+              Enter the 4-digit code sent to <strong id="otp-mobile-display" class="text-primary">+91 98765 43210</strong>
+            </p>
+            <p class="text-[11px] text-discount font-bold mt-1 bg-discount/10 py-1 px-2 rounded inline-block">💡 Hint: Enter 4 3 2 1</p>
+          </div>
+
+          <form id="otp-form" class="space-y-5">
+            <div class="flex justify-center gap-3">
+              <input class="otp-digit-input w-12 h-14 text-center border-2 border-outline-variant focus:border-primary rounded-xl font-headline text-xl font-bold text-primary bg-surface-container-low" maxlength="1" required type="text" />
+              <input class="otp-digit-input w-12 h-14 text-center border-2 border-outline-variant focus:border-primary rounded-xl font-headline text-xl font-bold text-primary bg-surface-container-low" maxlength="1" required type="text" />
+              <input class="otp-digit-input w-12 h-14 text-center border-2 border-outline-variant focus:border-primary rounded-xl font-headline text-xl font-bold text-primary bg-surface-container-low" maxlength="1" required type="text" />
+              <input class="otp-digit-input w-12 h-14 text-center border-2 border-outline-variant focus:border-primary rounded-xl font-headline text-xl font-bold text-primary bg-surface-container-low" maxlength="1" required type="text" />
+            </div>
+
+            <button class="w-full bg-on-tertiary-container hover:bg-[#b0824e] text-on-primary text-xs md:text-sm font-bold py-3 rounded-lg transition-colors shadow-md active:scale-95" type="submit">
+              Verify &amp; Enter Dashboard
+            </button>
+
+            <div class="text-center">
+              <button id="back-to-login-btn" class="text-xs font-bold text-primary hover:underline" type="button">
+                ← Back to Login
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="p-4 border-t border-outline-variant/40 text-center text-xs text-on-surface-variant bg-surface-container-highest">
+    <p>© 2024 Kranti Furnitures &amp; Electronics, Prayagraj. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

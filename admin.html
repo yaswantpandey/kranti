@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - Kranti Furnitures &amp; Electronics</title>
+  <meta name="description" content="Management portal for Kranti Furnitures &amp; Electronics Prayagraj." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "inverse-on-surface": "#eaf1ff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#2b1700",
+            "on-primary-fixed": "#001b3c",
+            "background": "#f8f9ff",
+            "on-surface": "#121c2a",
+            "inverse-surface": "#27313f",
+            "surface-container-high": "#dee9fc",
+            "on-tertiary-container": "#c6955e",
+            "inverse-primary": "#adc7f7",
+            "on-primary-fixed-variant": "#2d476f",
+            "tertiary-fixed": "#ffddba",
+            "on-secondary-fixed-variant": "#454747",
+            "on-surface-variant": "#43474e",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#c6c7c6",
+            "on-secondary-container": "#636564",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#4f2e00",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#d9e3f6",
+            "tertiary-fixed-dim": "#f2bc82",
+            "outline-variant": "#c4c6cf",
+            "primary": "#002045",
+            "surface": "#f8f9ff",
+            "secondary-container": "#e2e2e2",
+            "surface-container-low": "#eff4ff",
+            "secondary": "#5d5f5e",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container": "#e6eeff",
+            "on-error": "#ffffff",
+            "surface-bright": "#f8f9ff",
+            "secondary-fixed": "#e2e2e2",
+            "on-primary-container": "#86a0cd",
+            "surface-variant": "#d9e3f6",
+            "surface-tint": "#455f88",
+            "surface-dim": "#d0dbed",
+            "outline": "#74777f",
+            "on-background": "#121c2a",
+            "on-tertiary-fixed-variant": "#633f0f",
+            "on-secondary-fixed": "#1a1c1c",
+            "primary-fixed": "#d6e3ff",
+            "primary-container": "#1a365d",
+            "tertiary": "#321b00",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#adc7f7",
+            "discount": "#10b981",
+            "accent": "#ff9800"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "section-gap": "5rem",
+            "grid-gutter": "1.5rem",
+            "base-unit": "4px",
+            "card-padding": "1rem",
+            "container-max": "1280px"
+          },
+          fontFamily: {
+            "title-lg": ["Inter", "sans-serif"],
+            "headline-lg-mobile": ["Public Sans", "sans-serif"],
+            "price-display": ["Public Sans", "sans-serif"],
+            "headline-md": ["Public Sans", "sans-serif"],
+            "headline-xl": ["Public Sans", "sans-serif"],
+            "headline-lg": ["Public Sans", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body-md">
+
+  <!-- Admin Header Bar -->
+  <header class="sticky top-0 z-40 w-full bg-primary text-on-primary shadow-md border-b border-primary-container">
+    <div class="px-4 md:px-6 max-w-container-max mx-auto py-3.5 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-2xl text-tertiary-fixed">admin_panel_settings</span>
+        <div>
+          <h1 class="font-headline font-extrabold text-base md:text-lg text-white leading-tight">Kranti Showroom Admin</h1>
+          <p class="text-[11px] text-primary-fixed-dim">Manage Catalog, Customer Inquiries &amp; Settings</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="admin-export-csv-btn" class="bg-emerald-600/80 hover:bg-emerald-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">download</span> Export CSV
+        </button>
+
+        <a href="index.html" target="_blank" class="bg-surface/10 hover:bg-surface/20 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">open_in_new</span> View Website
+        </a>
+
+        <button id="admin-logout-btn" class="bg-error/80 hover:bg-error text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">logout</span> Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Admin Layout -->
+  <main class="flex-grow w-full max-w-container-max mx-auto px-4 md:px-6 py-8 flex flex-col md:flex-row gap-6">
+    
+    <!-- Admin Sidebar Nav -->
+    <aside class="w-full md:w-64 shrink-0 bg-surface-container-lowest border border-outline-variant/40 rounded-2xl p-4 shadow-sm h-fit">
+      <div class="pb-3 mb-3 border-b border-outline-variant/40">
+        <p class="text-xs font-bold uppercase tracking-wider text-outline">Management Menu</p>
+      </div>
+      
+      <nav class="space-y-1.5">
+        <button data-admin-tab="overview" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold bg-primary-container text-on-primary-container transition-colors text-left">
+          <span class="material-symbols-outlined text-lg">dashboard</span>
+          <span>Analytics Overview</span>
+        </button>
+
+        <button data-admin-tab="products" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container-high transition-colors text-left">
+          <span class="material-symbols-outlined text-lg">inventory_2</span>
+          <span>Manage Products</span>
+        </button>
+
+        <button data-admin-tab="inquiries" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container-high transition-colors text-left">
+          <span class="material-symbols-outlined text-lg">contact_support</span>
+          <span>Customer Inquiries</span>
+        </button>
+
+        <button data-admin-tab="settings" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container-high transition-colors text-left">
+          <span class="material-symbols-outlined text-lg">settings</span>
+          <span>Showroom Settings</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main Admin Content Area -->
+    <section class="flex-grow min-w-0 space-y-6">
+
+      <!-- TAB 1: Overview Pane -->
+      <div id="admin-pane-overview" class="admin-tab-pane space-y-6">
+        <!-- Stat Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Total Catalog Products</p>
+              <h3 id="stat-total-products" class="font-headline text-3xl font-extrabold text-primary">0</h3>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl">inventory_2</span>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Total Customer Inquiries</p>
+              <h3 id="stat-total-inquiries" class="font-headline text-3xl font-extrabold text-primary">0</h3>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-tertiary-container/30 text-on-tertiary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl">contact_support</span>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Pending Callbacks</p>
+              <h3 id="stat-pending-inquiries" class="font-headline text-3xl font-extrabold text-discount">0</h3>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-discount/10 text-discount flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl">call_quality</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Distribution Breakdown -->
+        <div class="p-6 md:p-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm">
+          <h3 class="font-headline text-lg font-bold text-primary mb-1">Catalog Breakdown by Category</h3>
+          <p class="text-xs text-on-surface-variant mb-6">Distribution of furniture and electronics currently listed on the website</p>
+
+          <div id="stat-category-breakdown" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <!-- Rendered by admin.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Manage Products Pane -->
+      <div id="admin-pane-products" class="admin-tab-pane hidden space-y-6">
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm space-y-6">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-outline-variant/40">
+            <div>
+              <h3 class="font-headline text-xl font-bold text-primary">Showroom Catalog Products</h3>
+              <p class="text-xs text-on-surface-variant">Add new items, edit specifications, toggle stock/featured badges, or clone listings</p>
+            </div>
+            <button id="admin-add-product-btn" class="bg-primary hover:bg-primary-container text-on-primary px-4 py-2.5 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 shadow-sm">
+              <span class="material-symbols-outlined text-base">add</span> Add New Product
+            </button>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-base">search</span>
+              <input id="admin-product-search" type="text" placeholder="Search by name or brand..." class="w-full text-xs pl-9 pr-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low focus:border-primary focus:ring-1 focus:ring-primary" />
+            </div>
+            <div>
+              <select id="admin-product-cat-filter" class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low focus:border-primary">
+                <option value="all">All Categories</option>
+                <option value="sofas">Sofas &amp; Recliners</option>
+                <option value="electronics">Smart Televisions</option>
+                <option value="beds">Beds &amp; Storage</option>
+                <option value="appliances">Refrigerators</option>
+                <option value="dining">Dining Sets</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Products Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-outline-variant/50 text-[11px] font-bold uppercase tracking-wider text-outline bg-surface-container-low">
+                  <th class="py-3 px-4">Product Info</th>
+                  <th class="py-3 px-4">Brand</th>
+                  <th class="py-3 px-4">Category</th>
+                  <th class="py-3 px-4">Stock Status</th>
+                  <th class="py-3 px-4">Featured</th>
+                  <th class="py-3 px-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-products-table-body">
+                <!-- Rendered by admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: Customer Inquiries Pane -->
+      <div id="admin-pane-inquiries" class="admin-tab-pane hidden space-y-6">
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm space-y-6">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-outline-variant/40">
+            <div>
+              <h3 class="font-headline text-xl font-bold text-primary">Customer Queries &amp; Lead Management</h3>
+              <p class="text-xs text-on-surface-variant">Reach out via WhatsApp, add callback notes, and manage customer leads</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex items-center gap-2">
+              <button data-inquiry-filter="all" class="px-3 py-1.5 rounded-full text-xs font-bold bg-primary text-on-primary">All Queries</button>
+              <button data-inquiry-filter="pending" class="px-3 py-1.5 rounded-full text-xs font-bold bg-surface-container-lowest text-on-surface-variant border border-outline-variant hover:border-primary">Pending</button>
+              <button data-inquiry-filter="answered" class="px-3 py-1.5 rounded-full text-xs font-bold bg-surface-container-lowest text-on-surface-variant border border-outline-variant hover:border-primary">Completed</button>
+            </div>
+          </div>
+
+          <!-- Inquiries Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-outline-variant/50 text-[11px] font-bold uppercase tracking-wider text-outline bg-surface-container-low">
+                  <th class="py-3 px-4">Inquiry ID</th>
+                  <th class="py-3 px-4">Customer Details</th>
+                  <th class="py-3 px-4">Interested Product</th>
+                  <th class="py-3 px-4">Query Message &amp; Notes</th>
+                  <th class="py-3 px-4">Callback Status</th>
+                  <th class="py-3 px-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-inquiries-table-body">
+                <!-- Rendered by admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: Showroom Settings Pane -->
+      <div id="admin-pane-settings" class="admin-tab-pane hidden space-y-6">
+        <div class="p-6 md:p-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm space-y-6">
+          <div class="pb-4 border-b border-outline-variant/40">
+            <h3 class="font-headline text-xl font-bold text-primary">Showroom Settings &amp; Contact Info</h3>
+            <p class="text-xs text-on-surface-variant">Update contact phone numbers, WhatsApp, store address, and website announcement banner</p>
+          </div>
+
+          <form id="admin-settings-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">Showroom Business Name</label>
+                <input type="text" id="set-store-name" required class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-outline-variant bg-surface-container-low" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">Primary Hotline Phone</label>
+                <input type="text" id="set-phone" required class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-outline-variant bg-surface-container-low" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">WhatsApp Business Hotline</label>
+                <input type="text" id="set-whatsapp" value="+91 98765 43210" class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-outline-variant bg-surface-container-low" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">Support Email Address</label>
+                <input type="email" id="set-email" required class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-outline-variant bg-surface-container-low" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-on-surface mb-1">Showroom Street Address</label>
+              <input type="text" id="set-address" required class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-outline-variant bg-surface-container-low" />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">Showroom Operating Hours</label>
+                <input type="text" id="set-hours" value="Open 7 Days: 10:00 AM - 9:00 PM" class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-outline-variant bg-surface-container-low" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">Homepage Announcement Banner</label>
+                <input type="text" id="set-banner" placeholder="e.g. Festival Season Specials Available!" class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-outline-variant bg-surface-container-low" />
+              </div>
+            </div>
+
+            <button type="submit" class="bg-primary text-on-primary font-bold px-6 py-2.5 rounded-lg text-xs hover:bg-primary-container transition-colors shadow-sm">
+              Save Showroom Settings
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Product Add / Edit Modal -->
+  <div id="admin-product-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-surface-container-lowest rounded-2xl max-w-xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-outline-variant/40 mb-4">
+        <h3 id="modal-product-title" class="font-headline font-bold text-base text-primary">Add New Catalog Product</h3>
+        <button id="close-admin-product-modal" class="text-on-surface-variant hover:text-primary">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <form id="admin-product-form" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Product Title *</label>
+            <input type="text" id="prod-input-name" required placeholder="e.g. Teakwood 6-Seater Dining Set" class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Brand Name *</label>
+            <input type="text" id="prod-input-brand" required placeholder="e.g. Urban Living" class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Category Code *</label>
+            <select id="prod-input-category" class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low">
+              <option value="sofas">Sofas &amp; Recliners (sofas)</option>
+              <option value="electronics">Televisions (electronics)</option>
+              <option value="beds">Beds &amp; Storage (beds)</option>
+              <option value="appliances">Refrigerators (appliances)</option>
+              <option value="dining">Dining Sets (dining)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Category Label</label>
+            <input type="text" id="prod-input-category-label" placeholder="e.g. Dining Sets" class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-on-surface mb-1">Image URL *</label>
+          <input type="url" id="prod-input-image" required placeholder="https://..." class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-on-surface mb-1">Product Description *</label>
+          <textarea id="prod-input-desc" required rows="3" placeholder="Enter detailed product highlights..." class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low"></textarea>
+        </div>
+
+        <label class="flex items-center gap-2 text-xs text-on-surface font-semibold cursor-pointer">
+          <input type="checkbox" id="prod-input-featured" class="rounded border-outline-variant text-primary" />
+          <span>⭐ Highlight on Homepage Featured Grid</span>
+        </label>
+
+        <div>
+          <label class="block text-xs font-bold text-on-surface mb-1">Technical Specifications (Key: Value per line)</label>
+          <textarea id="prod-input-specs" rows="3" placeholder="Primary Material: Solid Sheesham Wood&#10;Warranty: 5 Years" class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-primary text-on-primary font-bold py-3 rounded-lg text-xs hover:bg-primary-container transition-colors shadow-sm">
+          Save Product to Showroom Catalog
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Login Security Modal -->
+  <div id="admin-login-modal" class="hidden fixed inset-0 z-[200] bg-primary/95 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-surface-container-lowest rounded-2xl max-w-sm w-full p-8 shadow-2xl border border-outline-variant/50 text-center animate-scale-in">
+      <div class="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4">
+        <span class="material-symbols-outlined text-3xl">lock</span>
+      </div>
+
+      <h2 class="font-headline font-extrabold text-xl text-primary mb-1">Admin Passcode Required</h2>
+      <p class="text-xs text-on-surface-variant mb-6">Enter password to access Kranti Showroom portal (Default: <code class="bg-surface-container-high px-1 rounded">admin123</code>)</p>
+
+      <form id="admin-login-form" class="space-y-4">
+        <div>
+          <input type="password" id="admin-password-input" required placeholder="Enter Admin Password" class="w-full text-sm text-center px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-low focus:border-primary focus:ring-1 focus:ring-primary" />
+        </div>
+
+        <button type="submit" class="w-full bg-primary hover:bg-primary-container text-on-primary font-bold py-3 rounded-xl text-xs transition-colors shadow-md">
+          Unlock Admin Portal
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

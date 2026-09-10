@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Dashboard - Kranti Furnitures &amp; Electronics Prayagraj</title>
+  <meta name="description" content="Manage your profile details, submitted product inquiries, saved addresses, and wishlist at Kranti Furnitures &amp; Electronics." />
+  <meta name="robots" content="noindex, follow" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "inverse-on-surface": "#eaf1ff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#2b1700",
+            "on-primary-fixed": "#001b3c",
+            "background": "#f8f9ff",
+            "on-surface": "#121c2a",
+            "inverse-surface": "#27313f",
+            "surface-container-high": "#dee9fc",
+            "on-tertiary-container": "#c6955e",
+            "inverse-primary": "#adc7f7",
+            "on-primary-fixed-variant": "#2d476f",
+            "tertiary-fixed": "#ffddba",
+            "on-secondary-fixed-variant": "#454747",
+            "on-surface-variant": "#43474e",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#c6c7c6",
+            "on-secondary-container": "#636564",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#4f2e00",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#d9e3f6",
+            "tertiary-fixed-dim": "#f2bc82",
+            "outline-variant": "#c4c6cf",
+            "primary": "#002045",
+            "surface": "#f8f9ff",
+            "secondary-container": "#e2e2e2",
+            "surface-container-low": "#eff4ff",
+            "secondary": "#5d5f5e",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container": "#e6eeff",
+            "on-error": "#ffffff",
+            "surface-bright": "#f8f9ff",
+            "secondary-fixed": "#e2e2e2",
+            "on-primary-container": "#86a0cd",
+            "surface-variant": "#d9e3f6",
+            "surface-tint": "#455f88",
+            "surface-dim": "#d0dbed",
+            "outline": "#74777f",
+            "on-background": "#121c2a",
+            "on-tertiary-fixed-variant": "#633f0f",
+            "on-secondary-fixed": "#1a1c1c",
+            "primary-fixed": "#d6e3ff",
+            "primary-container": "#1a365d",
+            "tertiary": "#321b00",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#adc7f7",
+            "discount": "#10b981",
+            "accent": "#ff9800"
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "section-gap": "5rem",
+            "grid-gutter": "1.5rem",
+            "base-unit": "4px",
+            "card-padding": "1rem",
+            "container-max": "1280px"
+          },
+          fontFamily: {
+            "title-lg": ["Inter", "sans-serif"],
+            "headline-lg-mobile": ["Public Sans", "sans-serif"],
+            "price-display": ["Public Sans", "sans-serif"],
+            "headline-md": ["Public Sans", "sans-serif"],
+            "headline-xl": ["Public Sans", "sans-serif"],
+            "headline-lg": ["Public Sans", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+
+  <!-- Top App Bar / Header -->
+  <header class="sticky top-0 z-50 flex flex-col w-full bg-surface shadow-sm transition-transform duration-150 border-b border-outline-variant/60">
+    <div class="px-4 md:px-section-gap max-w-container-max mx-auto w-full py-3.5 flex items-center justify-between gap-6">
+      
+      <!-- Brand Logo -->
+      <a class="font-headline-lg text-xl md:text-2xl font-bold text-primary flex-shrink-0 flex items-center gap-2" href="index.html">
+        <span class="material-symbols-outlined text-primary text-2xl md:text-3xl">storefront</span>
+        <span>Kranti Furnitures &amp; Electronics</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="products.html?category=sofas">Furniture</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="products.html?category=electronics">Electronics</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="products.html?category=appliances">Appliances</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="index.html#contact-section">Contact Us</a>
+      </nav>
+
+      <!-- Action Icons -->
+      <div class="flex items-center gap-3 md:gap-4">
+        <a href="dashboard.html" class="p-2 text-on-surface-variant hover:text-primary transition-colors relative rounded-full hover:bg-surface-container-high" title="Wishlist">
+          <span class="material-symbols-outlined text-[24px]">favorite</span>
+          <span class="wishlist-badge-count hidden absolute -top-1 -right-1 bg-error text-on-primary text-[10px] font-bold w-4 h-4 rounded-full items-center justify-center">0</span>
+        </a>
+
+        <div class="relative">
+          <button class="profile-dropdown-btn p-2 text-primary font-bold transition-colors rounded-full bg-surface-container-high" aria-label="Account">
+            <span class="material-symbols-outlined text-[24px] filled">person</span>
+          </button>
+          
+          <div class="profile-dropdown-menu hidden absolute right-0 top-full mt-2 w-52 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-lg py-2 z-50 animate-fade-in">
+            <a href="auth.html" class="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-error hover:bg-surface">
+              <span class="material-symbols-outlined text-sm">logout</span> Switch Account / Sign Out
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="flex-grow w-full max-w-container-max mx-auto px-4 md:px-section-gap py-8 flex flex-col md:flex-row gap-grid-gutter">
+    
+    <!-- Sidebar Dashboard Navigation (Desktop) -->
+    <aside class="hidden md:flex flex-col w-64 shrink-0 space-y-2">
+      <div class="pb-4 mb-2 border-b border-outline-variant/40">
+        <h2 class="font-headline-md text-xl font-bold text-primary">My Account</h2>
+        <p id="dash-welcome-text" class="text-xs text-on-surface-variant">Welcome back, Customer</p>
+      </div>
+
+      <nav class="flex flex-col space-y-1">
+        <button data-dash-nav="profile" class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-bold text-sm text-left transition-colors w-full">
+          <span class="material-symbols-outlined filled text-lg">person</span>
+          <span>Profile Details</span>
+        </button>
+
+        <button data-dash-nav="inquiries" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors font-medium text-sm text-left w-full">
+          <span class="material-symbols-outlined text-lg">contact_support</span>
+          <span>My Product Inquiries</span>
+        </button>
+
+        <button data-dash-nav="wishlist" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors font-medium text-sm text-left w-full">
+          <span class="material-symbols-outlined text-lg">favorite</span>
+          <span>Saved Wishlist</span>
+        </button>
+
+        <button data-dash-nav="addresses" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors font-medium text-sm text-left w-full">
+          <span class="material-symbols-outlined text-lg">location_on</span>
+          <span>Saved Addresses</span>
+        </button>
+
+        <button data-dash-nav="support" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors font-medium text-sm text-left w-full">
+          <span class="material-symbols-outlined text-lg">support_agent</span>
+          <span>Help &amp; Support</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main Dashboard Content -->
+    <section class="flex-grow space-y-8 min-w-0">
+      
+      <!-- TAB SECTION 1: Profile & Overview -->
+      <div id="dash-sec-profile" class="dash-tab-section space-y-6">
+        
+        <!-- Personal Info Card -->
+        <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/40 p-6 md:p-8">
+          <div class="flex items-center justify-between mb-6 border-b border-outline-variant/40 pb-4">
+            <div>
+              <h3 class="font-headline-md text-lg md:text-xl font-bold text-on-surface">Personal Information</h3>
+              <p class="text-xs text-on-surface-variant">Manage your account details and contact preferences</p>
+            </div>
+            <button id="edit-profile-btn" class="px-4 py-2 rounded-lg bg-surface-container-high text-primary text-xs font-bold hover:bg-surface-variant transition-colors flex items-center space-x-1.5 shadow-sm">
+              <span class="material-symbols-outlined text-base">edit</span>
+              <span>Edit</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="space-y-1">
+              <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">First Name</label>
+              <p id="dash-first-name" class="text-sm md:text-base text-on-surface font-semibold">Ramesh</p>
+            </div>
+            <div class="space-y-1">
+              <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Last Name</label>
+              <p id="dash-last-name" class="text-sm md:text-base text-on-surface font-semibold">Kumar</p>
+            </div>
+            <div class="space-y-1">
+              <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Email Address</label>
+              <p id="dash-email" class="text-sm md:text-base text-on-surface font-semibold">ramesh.kumar@example.com</p>
+            </div>
+            <div class="space-y-1">
+              <label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Phone Number</label>
+              <p id="dash-phone" class="text-sm md:text-base text-on-surface font-semibold">+91 98765 43210</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento Grid: Submitted Inquiries & Saved Addresses -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Recent Inquiries Summary -->
+          <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/40 p-6 flex flex-col h-full hover:shadow-md transition-shadow">
+            <div class="flex items-center justify-between mb-4 pb-2 border-b border-outline-variant/30">
+              <div class="flex items-center space-x-2 text-primary">
+                <span class="material-symbols-outlined text-xl">contact_support</span>
+                <h3 class="font-bold text-base">Submitted Inquiries</h3>
+              </div>
+              <button data-dash-nav="inquiries" class="text-xs font-bold text-primary hover:underline">View All</button>
+            </div>
+
+            <div id="dash-recent-inquiries-list" class="flex-grow flex flex-col justify-center divide-y divide-outline-variant/30">
+              <!-- Populated by dashboard.js -->
+            </div>
+          </div>
+
+          <!-- Saved Addresses Summary -->
+          <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/40 p-6 flex flex-col h-full hover:shadow-md transition-shadow">
+            <div class="flex items-center justify-between mb-4 pb-2 border-b border-outline-variant/30">
+              <div class="flex items-center space-x-2 text-primary">
+                <span class="material-symbols-outlined text-xl">location_city</span>
+                <h3 class="font-bold text-base">Saved Addresses</h3>
+              </div>
+              <button data-dash-nav="addresses" class="text-xs font-bold text-primary hover:underline">Manage</button>
+            </div>
+
+            <div class="flex-grow flex flex-col justify-center space-y-3">
+              <div class="p-3.5 rounded-xl border border-outline-variant bg-surface">
+                <div class="flex items-center space-x-2 mb-1">
+                  <span class="material-symbols-outlined text-base text-primary">home</span>
+                  <span class="font-bold text-xs text-on-surface">Default Home Address</span>
+                </div>
+                <p class="text-xs text-on-surface-variant leading-relaxed">123 Civil Lines, Near High Court,<br/>Prayagraj, UP 211001</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- TAB SECTION 2: Submitted Inquiries History -->
+      <div id="dash-sec-inquiries" class="dash-tab-section hidden space-y-6">
+        <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/40 overflow-hidden">
+          <div class="p-6 border-b border-outline-variant/40">
+            <h3 class="font-headline-md text-xl font-bold text-primary">My Submitted Product Inquiries</h3>
+            <p class="text-xs text-on-surface-variant">View your queries, callback status, and showroom responses</p>
+          </div>
+
+          <div id="dash-inquiries-history-list" class="divide-y divide-outline-variant/30">
+            <!-- Populated by dashboard.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB SECTION 3: Saved Wishlist -->
+      <div id="dash-sec-wishlist" class="dash-tab-section hidden space-y-6">
+        <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/40 p-6 md:p-8">
+          <h3 class="font-headline-md text-xl font-bold text-primary mb-1">My Wishlist</h3>
+          <p class="text-xs text-on-surface-variant mb-6">Items you have saved for future showroom visits or inquiries</p>
+
+          <div id="dash-wishlist-container" class="grid grid-cols-1 gap-4">
+            <!-- Populated by dashboard.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB SECTION 4: Addresses Management -->
+      <div id="dash-sec-addresses" class="dash-tab-section hidden space-y-6">
+        <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/40 p-6 md:p-8">
+          <div class="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant/40">
+            <div>
+              <h3 class="font-headline-md text-xl font-bold text-primary">Manage Delivery Locations</h3>
+              <p class="text-xs text-on-surface-variant">Add or switch your delivery locations across Prayagraj</p>
+            </div>
+            <button id="add-address-btn" class="bg-primary text-on-primary text-xs font-bold px-4 py-2 rounded-lg hover:bg-primary-container transition-colors flex items-center gap-1.5 shadow-sm">
+              <span class="material-symbols-outlined text-base">add</span> Add New Address
+            </button>
+          </div>
+
+          <div id="dash-saved-addresses-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Populated by dashboard.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB SECTION 5: Help & Support -->
+      <div id="dash-sec-support" class="dash-tab-section hidden space-y-6">
+        <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/40 p-6 md:p-8 space-y-6">
+          <div>
+            <h3 class="font-headline-md text-xl font-bold text-primary mb-1">Showroom Customer Support</h3>
+            <p class="text-xs text-on-surface-variant">Need assistance with your furniture setup or TV warranty?</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/30">
+              <span class="material-symbols-outlined text-3xl text-primary mb-2">call</span>
+              <h4 class="font-bold text-sm text-primary">Phone Hotline</h4>
+              <p class="text-xs text-on-surface-variant mt-1">+91 98765 43210 (Mon-Sun, 9AM - 9PM)</p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/30">
+              <span class="material-symbols-outlined text-3xl text-primary mb-2">location_on</span>
+              <h4 class="font-bold text-sm text-primary">Showroom Visit</h4>
+              <p class="text-xs text-on-surface-variant mt-1">123 Civil Lines, Near High Court, Prayagraj</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Edit Profile Modal -->
+  <div id="edit-profile-modal" class="hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+    <div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-6 shadow-2xl animate-scale-in">
+      <div class="flex items-center justify-between pb-3 border-b border-outline-variant/40 mb-4">
+        <h3 class="font-bold text-base text-primary">Edit Profile Information</h3>
+        <button id="close-edit-profile-modal" class="text-on-surface-variant hover:text-primary">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <form id="edit-profile-form" class="space-y-4">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">First Name</label>
+            <input type="text" id="edit-first-name" required class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Last Name</label>
+            <input type="text" id="edit-last-name" required class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-on-surface mb-1">Email Address</label>
+          <input type="email" id="edit-email" required class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-on-surface mb-1">Phone Number</label>
+          <input type="tel" id="edit-phone" required class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low" />
+        </div>
+
+        <button type="submit" class="w-full bg-primary text-on-primary font-bold py-2.5 rounded-lg text-xs hover:bg-primary-container transition-colors">
+          Save Changes
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Address Modal -->
+  <div id="add-address-modal" class="hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+    <div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-6 shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-outline-variant/40 mb-4">
+        <h3 class="font-bold text-base text-primary">Add New Delivery Address</h3>
+        <button id="close-address-modal" class="text-on-surface-variant hover:text-primary">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <form id="add-address-form" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-bold text-on-surface mb-1">Address Type</label>
+          <select id="addr-type" class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low">
+            <option value="Home">Home</option>
+            <option value="Office / Work">Office / Work</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-on-surface mb-1">Full Name</label>
+          <input type="text" id="addr-name" required placeholder="Ramesh Kumar" class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Phone Number</label>
+            <input type="tel" id="addr-phone" required placeholder="+91 98765 43210" class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Pincode</label>
+            <input type="text" id="addr-pincode" required placeholder="211001" class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-on-surface mb-1">City / Region</label>
+          <input type="text" id="addr-city" value="Prayagraj" required class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-on-surface mb-1">Full Street Address</label>
+          <textarea id="addr-street" required rows="2" placeholder="House/Flat No., Building, Area..." class="w-full text-xs px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low"></textarea>
+        </div>
+
+        <label class="flex items-center gap-2 text-xs text-on-surface font-medium cursor-pointer">
+          <input type="checkbox" id="addr-default" class="rounded border-outline-variant text-primary" />
+          <span>Set as default delivery address</span>
+        </label>
+
+        <button type="submit" class="w-full bg-primary text-on-primary font-bold py-2.5 rounded-lg text-xs hover:bg-primary-container transition-colors">
+          Save Address
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 md:hidden bg-surface shadow-[0_-4px_10px_rgba(0,0,0,0.08)] border-t border-outline-variant/60 rounded-t-xl">
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary text-xs" href="index.html">
+      <span class="material-symbols-outlined text-xl">home</span>
+      <span class="mt-0.5">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary text-xs" href="products.html">
+      <span class="material-symbols-outlined text-xl">grid_view</span>
+      <span class="mt-0.5">Catalog</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary text-xs" href="index.html#contact-section">
+      <span class="material-symbols-outlined text-xl">contact_support</span>
+      <span class="mt-0.5">Inquire</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-primary font-bold text-xs" href="dashboard.html">
+      <span class="material-symbols-outlined text-xl filled">person</span>
+      <span class="mt-0.5">Profile</span>
+    </a>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
