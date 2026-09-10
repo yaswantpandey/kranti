@@ -2,11 +2,11 @@ import os
 import ftplib
 import sys
 
-FTP_HOST = os.getenv("FTP_HOST", "ftpupload.net")
+FTP_HOST = os.getenv("FTP_HOST")
 FTP_PORT = int(os.getenv("FTP_PORT", 21))
-FTP_USER = os.getenv("FTP_USER", "if0_42810835")
-FTP_PASS = os.getenv("FTP_PASS", "0R6NUZ60kB")
-REMOTE_TARGET_DIR = os.getenv("FTP_TARGET_DIR", "/krantifurniture.in/htdocs")
+FTP_USER = os.getenv("FTP_USER")
+FTP_PASS = os.getenv("FTP_PASS")
+REMOTE_TARGET_DIR = os.getenv("FTP_TARGET_DIR")
 
 # Files and directories to exclude
 EXCLUDE_NAMES = {
@@ -61,6 +61,17 @@ def upload_directory(ftp, local_dir, remote_base):
                 log(f"❌ Error uploading {display_path}: {err}")
 
 def main():
+    missing = [
+        name for name, value in {
+            "FTP_HOST": FTP_HOST,
+            "FTP_USER": FTP_USER,
+            "FTP_PASS": FTP_PASS,
+            "FTP_TARGET_DIR": REMOTE_TARGET_DIR,
+        }.items() if not value
+    ]
+    if missing:
+        raise RuntimeError(f"Missing required environment variables: {', '.join(missing)}")
+
     log(f"Connecting to FTP server {FTP_HOST}...")
     ftp = ftplib.FTP()
     ftp.connect(FTP_HOST, FTP_PORT, timeout=30)
@@ -78,4 +89,4 @@ def main():
     log("\n✅ All files uploaded successfully to krantifurniture.in/htdocs!")
 
 if __name__ == "__main__":
-    main
+    main()

@@ -1,0 +1,38 @@
+name: Deploy to InfinityFree
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: infinityfree-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Upload website through FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          server-dir: /krantifurniture.in/htdocs/
+          exclude: |
+            **/.git*/**
+            **/.github/**
+            **/deploy.py
+            **/ftp.txt
+            **/sync_config.jsonc
+            **/.env*
+            **/__pycache__/**
+            **/node_modules/**
+            **/backend/logs/**
