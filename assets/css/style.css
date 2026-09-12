@@ -485,9 +485,9 @@ input, select, textarea { font: inherit; }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('../images/hero-bg.jpg'), url('../../bg.jpeg');
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6AlQf8l0htq7cHBA8cW81kJJF-m-KUrHjqpXKQUFP3psDxxY3g4twEj8Ul82vGhvQSinKi1Sbr7cJ3g_9X5XnXFt3y-n14MzBqmo_t5C-LyADX8CPcg0r8vsHl5CJO07N794n_GZGujnD1VM6anBOIDA5uWui0bzoQVZ9TuppoeU_g8-ESKl4jAR5LI7pOamEYgPFj08rr3Wwt_wygmpfTlfpOgz3ep8XKXCAA8nvYn8twLWu8A-C');
   background-size: cover;
-  background-position: center 35%;
+  background-position: center center;
   transform-origin: center;
   animation: heroZoom 20s ease-in-out infinite alternate;
 }
@@ -694,8 +694,8 @@ input, select, textarea { font: inherit; }
 
 .hero-showcase-img {
   width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
 
 .hero-showcase-info {

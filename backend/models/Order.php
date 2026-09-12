@@ -151,7 +151,7 @@ class Order {
         $items = $itemStmt->fetchAll();
 
         // Fetch Timelines
-        $tStmt = $db->prepare('SELECT title, description as desc, event_time as time, is_completed as completed FROM order_timelines WHERE order_id = :order_id ORDER BY id ASC');
+        $tStmt = $db->prepare('SELECT title, description as `desc`, event_time as time, is_completed as completed FROM order_timelines WHERE order_id = :order_id ORDER BY id ASC');
         $tStmt->execute(['order_id' => $order['id']]);
         $timeline = $tStmt->fetchAll();
 
@@ -188,3 +188,4 @@ class Order {
         ];
     }
 }
+

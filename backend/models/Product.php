@@ -36,8 +36,9 @@ class Product {
         $binds = [];
 
         if (!empty($params['category']) && $params['category'] !== 'all') {
-            $query .= ' AND (category_slug = :category OR LOWER(sub_category) = LOWER(:category))';
-            $binds['category'] = $params['category'];
+            $query .= ' AND (category_slug = :category_slug OR LOWER(sub_category) = LOWER(:category_sub))';
+            $binds['category_slug'] = $params['category'];
+            $binds['category_sub'] = $params['category'];
         }
 
         if (!empty($params['q'])) {

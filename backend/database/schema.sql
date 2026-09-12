@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `name` VARCHAR(100) NOT NULL,
   `slug` VARCHAR(100) NOT NULL UNIQUE,
   `description` TEXT NULL,
-  `image` VARCHAR(255) NULL,
+  `image` TEXT NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   INDEX `idx_categories_slug` (`slug`)
