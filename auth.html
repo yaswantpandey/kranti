@@ -1,289 +1,739 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign In &amp; Register - Kranti Furnitures &amp; Electronics Prayagraj</title>
-  <meta name="description" content="Sign in or register for an account with Kranti Furnitures &amp; Electronics Prayagraj." />
+  <title>Sign In & Register – Kranti Furnitures & Electronics Prayagraj</title>
+  <meta name="description" content="Sign in or create an account with Kranti Furnitures & Electronics, Prayagraj – owned by Chandramani Gupta." />
   <meta name="robots" content="noindex, follow" />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Material Symbols -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "inverse-on-surface": "#eaf1ff",
-            "surface-container-lowest": "#ffffff",
-            "on-tertiary-fixed": "#2b1700",
-            "on-primary-fixed": "#001b3c",
-            "background": "#f8f9ff",
-            "on-surface": "#121c2a",
-            "inverse-surface": "#27313f",
-            "surface-container-high": "#dee9fc",
-            "on-tertiary-container": "#c6955e",
-            "inverse-primary": "#adc7f7",
-            "on-primary-fixed-variant": "#2d476f",
-            "tertiary-fixed": "#ffddba",
-            "on-secondary-fixed-variant": "#454747",
-            "on-surface-variant": "#43474e",
-            "on-primary": "#ffffff",
-            "secondary-fixed-dim": "#c6c7c6",
-            "on-secondary-container": "#636564",
-            "on-tertiary": "#ffffff",
-            "tertiary-container": "#4f2e00",
-            "error": "#ba1a1a",
-            "surface-container-highest": "#d9e3f6",
-            "tertiary-fixed-dim": "#f2bc82",
-            "outline-variant": "#c4c6cf",
-            "primary": "#002045",
-            "surface": "#f8f9ff",
-            "secondary-container": "#e2e2e2",
-            "surface-container-low": "#eff4ff",
-            "secondary": "#5d5f5e",
-            "on-secondary": "#ffffff",
-            "error-container": "#ffdad6",
-            "surface-container": "#e6eeff",
-            "on-error": "#ffffff",
-            "surface-bright": "#f8f9ff",
-            "secondary-fixed": "#e2e2e2",
-            "on-primary-container": "#86a0cd",
-            "surface-variant": "#d9e3f6",
-            "surface-tint": "#455f88",
-            "surface-dim": "#d0dbed",
-            "outline": "#74777f",
-            "on-background": "#121c2a",
-            "on-tertiary-fixed-variant": "#633f0f",
-            "on-secondary-fixed": "#1a1c1c",
-            "primary-fixed": "#d6e3ff",
-            "primary-container": "#1a365d",
-            "tertiary": "#321b00",
-            "on-error-container": "#93000a",
-            "primary-fixed-dim": "#adc7f7",
-            "discount": "#10b981",
-            "accent": "#ff9800"
-          },
-          borderRadius: {
-            "DEFAULT": "0.5rem",
-            "lg": "0.75rem",
-            "xl": "1rem",
-            "full": "9999px"
-          },
-          spacing: {
-            "section-gap": "5rem",
-            "grid-gutter": "1.5rem",
-            "base-unit": "4px",
-            "card-padding": "1rem",
-            "container-max": "1280px"
-          },
-          fontFamily: {
-            "title-lg": ["Inter", "sans-serif"],
-            "headline-lg-mobile": ["Public Sans", "sans-serif"],
-            "price-display": ["Public Sans", "sans-serif"],
-            "headline-md": ["Public Sans", "sans-serif"],
-            "headline-xl": ["Public Sans", "sans-serif"],
-            "headline-lg": ["Public Sans", "sans-serif"],
-            "body-lg": ["Inter", "sans-serif"],
-            "label-md": ["Inter", "sans-serif"],
-            "body-md": ["Inter", "sans-serif"],
-            "body-sm": ["Inter", "sans-serif"]
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Custom CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* Auth page specific */
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-page::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -15%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.12), transparent 65%);
+      pointer-events: none;
+    }
+
+    .auth-page::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,52,96,0.5), transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Left brand panel (hidden on mobile) */
+    .auth-brand {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem;
+      position: relative;
+      z-index: 1;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .auth-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .auth-brand-logo-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      font-size: 24px;
+    }
+
+    .auth-brand-name {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .auth-brand-sub {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .auth-brand-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .auth-brand-headline span { color: var(--gold); }
+
+    .auth-brand-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+
+    .auth-brand-perks {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .auth-perk {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+    }
+
+    .auth-perk-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .auth-perk-text {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+    }
+
+    .auth-brand-address {
+      margin-top: 3rem;
+      padding: 1.25rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .auth-brand-address p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+
+    .auth-brand-address strong {
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* Right form panel */
+    .auth-form-panel {
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 3.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .auth-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+      transition: color var(--dur-fast);
+    }
+
+    .auth-back:hover { color: var(--gold-light); }
+
+    /* Tab Switcher */
+    .auth-tabs {
+      display: flex;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      padding: 4px;
+      margin-bottom: 2rem;
+      gap: 4px;
+    }
+
+    .auth-tab {
+      flex: 1;
+      padding: 0.625rem;
+      text-align: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      border-radius: calc(var(--radius-md) - 4px);
+      cursor: pointer;
+      transition: all var(--dur-mid) var(--ease-smooth);
+      border: none;
+      background: transparent;
+    }
+
+    .auth-tab.active {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      box-shadow: 0 2px 12px rgba(201,168,76,0.4);
+    }
+
+    /* Form */
+    .auth-view { display: none; }
+    .auth-view.active { display: block; animation: fadeInUp 0.4s var(--ease-out) both; }
+
+    .auth-title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.375rem;
+    }
+
+    .auth-subtitle {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1.75rem;
+    }
+
+    .auth-form .form-group label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .auth-form .form-group input {
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--white);
+      font-size: 0.9375rem;
+      width: 100%;
+      transition: all var(--dur-fast);
+    }
+
+    .auth-form .form-group input::placeholder { color: rgba(255,255,255,0.3); }
+
+    .auth-form .form-group input:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.06);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+    }
+
+    .auth-form .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .auth-form .btn-submit {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.9375rem;
+      padding: 0.875rem;
+      border-radius: var(--radius-sm);
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all var(--dur-mid) var(--ease-smooth);
+      margin-top: 0.5rem;
+    }
+
+    .auth-form .btn-submit:hover {
+      box-shadow: 0 8px 30px rgba(201,168,76,0.5);
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .auth-divider span {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      font-weight: 500;
+    }
+
+    .auth-wa-btn {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid rgba(37,211,102,0.4);
+      background: rgba(37,211,102,0.08);
+      color: #25D366;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--dur-fast);
+    }
+
+    .auth-wa-btn:hover {
+      background: rgba(37,211,102,0.15);
+      border-color: rgba(37,211,102,0.7);
+    }
+
+    .auth-forgot {
+      text-align: right;
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .auth-forgot a {
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .auth-forgot a:hover { text-decoration: underline; }
+
+    /* OTP view */
+    .otp-digits {
+      display: flex;
+      gap: 0.625rem;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+
+    .otp-input {
+      width: 52px;
+      height: 58px;
+      text-align: center;
+      font-size: 1.375rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+      color: var(--white);
+      transition: all var(--dur-fast);
+      caret-color: var(--gold);
+    }
+
+    .otp-input:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.08);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+    }
+
+    .otp-resend {
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 1rem;
+    }
+
+    .otp-resend button {
+      color: var(--gold-light);
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .otp-resend button:hover { text-decoration: underline; }
+
+    @media (max-width: 900px) {
+      .auth-brand { display: none; }
+      .auth-form-panel { max-width: 100%; padding: 2rem 1.5rem; margin: auto; }
+    }
+
+    @media (max-width: 480px) {
+      .auth-form-panel { padding: 1.5rem 1.25rem; }
+    }
+  </style>
 </head>
-<body class="bg-background min-h-screen flex flex-col font-body-md text-on-background">
+<body>
 
-  <!-- Simple Navigation Bar -->
-  <header class="p-4 border-b border-outline-variant/40 bg-surface">
-    <div class="max-w-container-max mx-auto flex items-center justify-between">
-      <a class="font-headline-lg text-lg md:text-xl font-bold text-primary flex items-center gap-2" href="index.html">
-        <span class="material-symbols-outlined text-primary text-2xl">storefront</span>
-        <span>Kranti Furnitures &amp; Electronics</span>
-      </a>
+<main class="auth-page">
 
-      <a href="index.html" class="text-xs font-bold text-on-surface-variant hover:text-primary flex items-center gap-1">
-        <span class="material-symbols-outlined text-sm">arrow_back</span>
-        <span>Back to Store</span>
-      </a>
-    </div>
-  </header>
-
-  <!-- Main Auth Container -->
-  <main class="flex-grow flex items-center justify-center p-4 py-8 md:py-12">
-    
-    <div class="bg-surface-container-lowest rounded-2xl shadow-lg w-full max-w-md overflow-hidden border border-outline-variant/40 animate-fade-in">
-      
-      <!-- Brand Header -->
-      <div class="p-6 text-center border-b border-outline-variant/40 bg-surface-container-low">
-        <div class="w-12 h-12 rounded-full bg-surface-container-high text-primary flex items-center justify-center mx-auto mb-2">
-          <span class="material-symbols-outlined text-2xl">lock</span>
-        </div>
-        <h1 class="font-headline-md text-xl font-bold text-primary">Kranti Digital Showroom</h1>
-        <p class="text-xs text-on-surface-variant mt-0.5">Furnitures &amp; Electronics • Prayagraj</p>
+  <!-- ── Left Brand Panel ──────────────────────────────────────────── -->
+  <div class="auth-brand">
+    <div class="auth-brand-logo">
+      <div class="auth-brand-logo-icon">
+        <span class="material-symbols-outlined" style="font-size:24px" aria-hidden="true">storefront</span>
       </div>
+      <div>
+        <div class="auth-brand-name">Kranti</div>
+        <div class="auth-brand-sub">Furnitures &amp; Electronics</div>
+      </div>
+    </div>
 
-      <!-- Tab Navigation -->
-      <div class="flex border-b border-outline-variant/40">
-        <button id="tab-login" class="flex-1 py-3.5 text-xs md:text-sm font-bold text-primary border-b-2 border-primary bg-surface transition-colors">
+    <h1 class="auth-brand-headline">
+      Your Home.<br/>
+      <span>Your Style.</span>
+    </h1>
+
+    <p class="auth-brand-desc">
+      Sign in to track your product inquiries, manage your wishlist, and get personalised recommendations from Prayagraj's most trusted showroom.
+    </p>
+
+    <div class="auth-brand-perks">
+      <div class="auth-perk">
+        <div class="auth-perk-icon"><span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">inventory_2</span></div>
+        <span class="auth-perk-text">Track all your submitted inquiries in one place</span>
+      </div>
+      <div class="auth-perk">
+        <div class="auth-perk-icon"><span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">favorite</span></div>
+        <span class="auth-perk-text">Save favourite products to your personal wishlist</span>
+      </div>
+      <div class="auth-perk">
+        <div class="auth-perk-icon"><span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">notifications_active</span></div>
+        <span class="auth-perk-text">Get notified when new stock arrives in the showroom</span>
+      </div>
+      <div class="auth-perk">
+        <div class="auth-perk-icon"><span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">verified_user</span></div>
+        <span class="auth-perk-text">Safe &amp; secure — no passwords shared</span>
+      </div>
+    </div>
+
+    <div class="auth-brand-address">
+      <p><strong>📍 Khawas Ka Tara, Manda Khas, Prayagraj, UP</strong></p>
+      <p style="margin-top:.375rem">Owner: <strong>Chandramani Gupta</strong> · Call: <a href="tel:+919140906684" style="color:var(--gold-light);text-decoration:none">+91 91409 06684</a></p>
+      <p style="margin-top:.25rem">WhatsApp: <a href="https://wa.me/919935320761" target="_blank" rel="noopener" style="color:#25D366;text-decoration:none">+91 99353 20761</a></p>
+    </div>
+  </div>
+
+  <!-- ── Right Form Panel ──────────────────────────────────────────── -->
+  <div class="auth-form-panel">
+
+    <a href="index.html" class="auth-back">
+      <span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">arrow_back</span>
+      Back to Home
+    </a>
+
+    <!-- Tab switcher -->
+    <div class="auth-tabs" role="tablist" aria-label="Authentication options">
+      <button class="auth-tab active" id="tab-signin" role="tab" aria-selected="true" aria-controls="view-signin" onclick="switchTab('signin')">Sign In</button>
+      <button class="auth-tab" id="tab-register" role="tab" aria-selected="false" aria-controls="view-register" onclick="switchTab('register')">Register</button>
+    </div>
+
+    <!-- ── Sign In View ─────────────────────────────────────────────── -->
+    <div class="auth-view active" id="view-signin" role="tabpanel" aria-labelledby="tab-signin">
+      <div class="auth-title">Welcome Back</div>
+      <p class="auth-subtitle">Sign in to your Kranti account</p>
+
+      <form class="auth-form" id="signin-form" novalidate>
+        <div class="form-group">
+          <label for="si-phone">Mobile Number *</label>
+          <input type="tel" id="si-phone" name="phone" required placeholder="+91 98765 43210" autocomplete="tel" maxlength="13" />
+        </div>
+        <div class="form-group">
+          <label for="si-password">Password *</label>
+          <div style="position:relative">
+            <input type="password" id="si-password" name="password" required placeholder="Enter your password" autocomplete="current-password" style="padding-right:3rem" />
+            <button type="button" onclick="togglePass('si-password', this)" style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;padding:0;display:flex" aria-label="Show/hide password">
+              <span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">visibility</span>
+            </button>
+          </div>
+        </div>
+        <div class="auth-forgot"><a href="#">Forgot Password?</a></div>
+        <button type="submit" class="btn-submit">
+          <span class="material-symbols-outlined" style="font-size:20px" aria-hidden="true">login</span>
           Sign In
         </button>
-        <button id="tab-register" class="flex-1 py-3.5 text-xs md:text-sm font-medium text-on-surface-variant bg-surface-container-lowest hover:bg-surface transition-colors">
+      </form>
+
+      <div class="auth-divider"><span>or</span></div>
+
+      <button class="auth-tab" onclick="switchTab('otp')" style="width:100%;padding:.75rem;border-radius:var(--radius-sm);border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:rgba(255,255,255,.7);font-size:.875rem;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.5rem;" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.05)'">
+        <span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">sms</span>
+        Sign In with OTP Instead
+      </button>
+
+      <div class="auth-divider"><span>contact us directly</span></div>
+
+      <a href="https://wa.me/919935320761?text=Hi%2C%20I%20need%20help%20with%20my%20account" target="_blank" rel="noopener" class="auth-wa-btn" aria-label="Chat on WhatsApp">
+        💬 Chat on WhatsApp – 9935320761
+      </a>
+    </div>
+
+    <!-- ── Register View ────────────────────────────────────────────── -->
+    <div class="auth-view" id="view-register" role="tabpanel" aria-labelledby="tab-register">
+      <div class="auth-title">Create Account</div>
+      <p class="auth-subtitle">Join Kranti and track your inquiries</p>
+
+      <form class="auth-form" id="register-form" novalidate>
+        <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div class="form-group">
+            <label for="reg-fname">First Name *</label>
+            <input type="text" id="reg-fname" name="first_name" required placeholder="Ramesh" autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label for="reg-lname">Last Name *</label>
+            <input type="text" id="reg-lname" name="last_name" required placeholder="Kumar" autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reg-phone">Mobile Number *</label>
+          <input type="tel" id="reg-phone" name="phone" required placeholder="+91 98765 43210" autocomplete="tel" maxlength="13" />
+        </div>
+        <div class="form-group">
+          <label for="reg-email">Email Address</label>
+          <input type="email" id="reg-email" name="email" placeholder="ramesh@example.com" autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="reg-city">City / Location</label>
+          <input type="text" id="reg-city" name="city" placeholder="e.g. Prayagraj, Naini, Allahabad" autocomplete="address-level2" />
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Create Password *</label>
+          <div style="position:relative">
+            <input type="password" id="reg-password" name="password" required placeholder="Minimum 8 characters" autocomplete="new-password" style="padding-right:3rem" />
+            <button type="button" onclick="togglePass('reg-password', this)" style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;padding:0;display:flex" aria-label="Show/hide password">
+              <span class="material-symbols-outlined" style="font-size:18px" aria-hidden="true">visibility</span>
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit">
+          <span class="material-symbols-outlined" style="font-size:20px" aria-hidden="true">person_add</span>
           Create Account
         </button>
-      </div>
-
-      <!-- Content Area -->
-      <div class="p-6">
-        
-        <!-- View 1: Login -->
-        <div id="view-login" class="space-y-4">
-          <form id="login-form" class="space-y-4">
-            <div>
-              <label class="block text-xs font-bold text-on-surface mb-1" for="login-identifier">Mobile Number or Email</label>
-              <div class="relative">
-                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">person</span>
-                <input id="login-identifier" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg text-xs md:text-sm font-medium focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter 10-digit mobile or email" required type="text" value="+91 98765 43210" />
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-on-surface mb-1" for="login-password">Password</label>
-              <div class="relative">
-                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">lock</span>
-                <input id="login-password" class="w-full pl-10 pr-10 py-2.5 border border-outline-variant rounded-lg text-xs md:text-sm font-medium focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter your password" required type="password" value="kranti123" />
-                <button data-toggle-password="login-password" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary" type="button">
-                  <span class="material-symbols-outlined text-lg">visibility</span>
-                </button>
-              </div>
-              <div class="text-right mt-1.5">
-                <a class="text-xs font-bold text-primary hover:underline" href="#">Forgot Password?</a>
-              </div>
-            </div>
-
-            <button class="w-full bg-primary text-on-primary text-xs md:text-sm font-bold py-3 rounded-lg hover:bg-primary-container transition-colors shadow-sm flex justify-center items-center gap-2 active:scale-95" type="submit">
-              <span>Sign In with OTP Verification</span>
-              <span class="material-symbols-outlined text-base font-bold">arrow_forward</span>
-            </button>
-          </form>
-
-          <!-- Divider -->
-          <div class="relative flex items-center justify-center my-4">
-            <span class="absolute w-full border-t border-outline-variant/40"></span>
-            <span class="relative bg-surface-container-lowest px-3 text-xs text-on-surface-variant font-medium">Or continue with</span>
-          </div>
-
-          <!-- Google Social Button -->
-          <button id="google-login-btn" class="w-full flex items-center justify-center gap-2 py-2.5 border border-outline-variant rounded-lg text-xs font-bold text-on-surface hover:bg-surface-container-high transition-colors" type="button">
-            <span class="font-bold text-sm text-primary">G</span>
-            <span>Sign In with Google</span>
-          </button>
-        </div>
-
-        <!-- View 2: Registration -->
-        <div id="view-register" class="hidden space-y-4">
-          <form id="register-form" class="space-y-3">
-            <div>
-              <label class="block text-xs font-bold text-on-surface mb-1" for="reg-name">Full Name</label>
-              <div class="relative">
-                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">badge</span>
-                <input id="reg-name" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg text-xs md:text-sm font-medium focus:border-primary" placeholder="e.g. Ramesh Kumar" required type="text" />
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-on-surface mb-1" for="reg-mobile">Mobile Number</label>
-              <div class="relative">
-                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">phone_iphone</span>
-                <input id="reg-mobile" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg text-xs md:text-sm font-medium focus:border-primary" placeholder="10-digit mobile number" required type="tel" />
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-on-surface mb-1" for="reg-email">Email Address</label>
-              <div class="relative">
-                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">mail</span>
-                <input id="reg-email" class="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg text-xs md:text-sm font-medium focus:border-primary" placeholder="name@example.com" required type="email" />
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-on-surface mb-1" for="reg-password">Create Password</label>
-              <div class="relative">
-                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">lock</span>
-                <input id="reg-password" class="w-full pl-10 pr-10 py-2.5 border border-outline-variant rounded-lg text-xs md:text-sm font-medium focus:border-primary" placeholder="Minimum 6 characters" required type="password" />
-                <button data-toggle-password="reg-password" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary" type="button">
-                  <span class="material-symbols-outlined text-lg">visibility</span>
-                </button>
-              </div>
-            </div>
-
-            <button class="w-full mt-4 bg-primary text-on-primary text-xs md:text-sm font-bold py-3 rounded-lg hover:bg-primary-container transition-colors shadow-sm" type="submit">
-              Create Account
-            </button>
-          </form>
-        </div>
-
-        <!-- View 3: OTP Verification -->
-        <div id="view-otp" class="hidden space-y-5 animate-scale-in">
-          <div class="text-center">
-            <div class="inline-flex items-center justify-center w-12 h-12 bg-surface-container-high rounded-full mb-3 text-primary">
-              <span class="material-symbols-outlined text-2xl">sms</span>
-            </div>
-            <h2 class="font-headline-md text-lg font-bold text-on-surface">Verify Mobile Number</h2>
-            <p class="text-xs text-on-surface-variant mt-1">
-              Enter the 4-digit code sent to <strong id="otp-mobile-display" class="text-primary">+91 98765 43210</strong>
-            </p>
-            <p class="text-[11px] text-discount font-bold mt-1 bg-discount/10 py-1 px-2 rounded inline-block">💡 Hint: Enter 4 3 2 1</p>
-          </div>
-
-          <form id="otp-form" class="space-y-5">
-            <div class="flex justify-center gap-3">
-              <input class="otp-digit-input w-12 h-14 text-center border-2 border-outline-variant focus:border-primary rounded-xl font-headline text-xl font-bold text-primary bg-surface-container-low" maxlength="1" required type="text" />
-              <input class="otp-digit-input w-12 h-14 text-center border-2 border-outline-variant focus:border-primary rounded-xl font-headline text-xl font-bold text-primary bg-surface-container-low" maxlength="1" required type="text" />
-              <input class="otp-digit-input w-12 h-14 text-center border-2 border-outline-variant focus:border-primary rounded-xl font-headline text-xl font-bold text-primary bg-surface-container-low" maxlength="1" required type="text" />
-              <input class="otp-digit-input w-12 h-14 text-center border-2 border-outline-variant focus:border-primary rounded-xl font-headline text-xl font-bold text-primary bg-surface-container-low" maxlength="1" required type="text" />
-            </div>
-
-            <button class="w-full bg-on-tertiary-container hover:bg-[#b0824e] text-on-primary text-xs md:text-sm font-bold py-3 rounded-lg transition-colors shadow-md active:scale-95" type="submit">
-              Verify &amp; Enter Dashboard
-            </button>
-
-            <div class="text-center">
-              <button id="back-to-login-btn" class="text-xs font-bold text-primary hover:underline" type="button">
-                ← Back to Login
-              </button>
-            </div>
-          </form>
-        </div>
-
-      </div>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.35);text-align:center;margin-top:1rem">
+          By registering you agree to our terms. Your data is kept private and secure.
+        </p>
+      </form>
     </div>
-  </main>
 
-  <!-- Footer -->
-  <footer class="p-4 border-t border-outline-variant/40 text-center text-xs text-on-surface-variant bg-surface-container-highest">
-    <p>© 2024 Kranti Furnitures &amp; Electronics, Prayagraj. All rights reserved.</p>
-  </footer>
+    <!-- ── OTP View ──────────────────────────────────────────────────── -->
+    <div class="auth-view" id="view-otp" role="tabpanel" aria-labelledby="tab-signin">
+      <div class="auth-title">Verify OTP</div>
+      <p class="auth-subtitle" id="otp-hint">Enter the 6-digit code sent to your mobile</p>
 
-  <!-- Scripts -->
-  <script src="assets/js/products-data.js"></script>
-  <script src="assets/js/store.js"></script>
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/auth.js"></script>
+      <form class="auth-form" id="otp-form" novalidate>
+        <div class="form-group" id="otp-phone-group">
+          <label for="otp-phone-input">Mobile Number *</label>
+          <input type="tel" id="otp-phone-input" required placeholder="+91 98765 43210" autocomplete="tel" maxlength="13" />
+        </div>
+
+        <div class="otp-digits" id="otp-digits-group" style="display:none">
+          <input class="otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="OTP digit 1" />
+          <input class="otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="OTP digit 2" />
+          <input class="otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="OTP digit 3" />
+          <input class="otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="OTP digit 4" />
+          <input class="otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="OTP digit 5" />
+          <input class="otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="OTP digit 6" />
+        </div>
+
+        <button type="submit" class="btn-submit" id="otp-btn">
+          <span class="material-symbols-outlined" style="font-size:20px" aria-hidden="true">send</span>
+          Send OTP
+        </button>
+
+        <div class="otp-resend" id="otp-resend" style="display:none">
+          Didn't receive it? <button type="button" onclick="resendOtp()">Resend OTP</button>
+        </div>
+      </form>
+
+      <button onclick="switchTab('signin')" style="display:flex;align-items:center;gap:.4rem;margin:1.25rem auto 0;background:none;border:none;cursor:pointer;font-size:.8125rem;color:rgba(255,255,255,.45)">
+        <span class="material-symbols-outlined" style="font-size:16px" aria-hidden="true">arrow_back</span>
+        Back to Sign In
+      </button>
+    </div>
+
+  </div><!-- /auth-form-panel -->
+</main>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+<script src="assets/js/auth.js"></script>
+<script>
+/* ── Tab Switcher ───────────────────────────────────────────────────── */
+function switchTab(tab) {
+  document.querySelectorAll('.auth-view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.auth-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+
+  const view = document.getElementById('view-' + tab);
+  if (view) {
+    view.classList.add('active');
+  }
+
+  if (tab === 'signin') {
+    document.getElementById('tab-signin').classList.add('active');
+    document.getElementById('tab-signin').setAttribute('aria-selected', 'true');
+  } else if (tab === 'register') {
+    document.getElementById('tab-register').classList.add('active');
+    document.getElementById('tab-register').setAttribute('aria-selected', 'true');
+  }
+}
+
+/* URL param auto-select tab */
+const urlTab = new URLSearchParams(location.search).get('tab');
+if (urlTab) switchTab(urlTab);
+
+/* ── Toggle Password Visibility ─────────────────────────────────────── */
+function togglePass(inputId, btn) {
+  const inp = document.getElementById(inputId);
+  const icon = btn.querySelector('.material-symbols-outlined');
+  if (inp.type === 'password') {
+    inp.type = 'text';
+    icon.textContent = 'visibility_off';
+  } else {
+    inp.type = 'password';
+    icon.textContent = 'visibility';
+  }
+}
+
+/* ── Toast ──────────────────────────────────────────────────────────── */
+function showToast(message, type = 'info') {
+  const icons = { success: 'check_circle', error: 'error', info: 'info' };
+  const container = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.innerHTML = `<span class="material-symbols-outlined toast-icon filled">${icons[type] || 'info'}</span><span>${message}</span>`;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(20px)';
+    toast.style.transition = 'all 0.3s ease';
+    setTimeout(() => toast.remove(), 350);
+  }, 4000);
+}
+
+/* ── Sign In Form ───────────────────────────────────────────────────── */
+document.getElementById('signin-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const phone    = document.getElementById('si-phone').value.trim();
+  const password = document.getElementById('si-password').value;
+  if (!phone || !password) { showToast('Please fill in all fields.', 'error'); return; }
+  showToast('Signing in…', 'info');
+  setTimeout(() => {
+    const user = JSON.parse(localStorage.getItem('kf_user') || 'null');
+    if (user && user.phone === phone) {
+      localStorage.setItem('kf_logged_in', 'true');
+      showToast('Welcome back, ' + user.name + '! 🎉', 'success');
+      setTimeout(() => window.location.href = 'dashboard.html', 1200);
+    } else {
+      showToast('No account found. Please register first.', 'error');
+    }
+  }, 800);
+});
+
+/* ── Register Form ──────────────────────────────────────────────────── */
+document.getElementById('register-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const fname = document.getElementById('reg-fname').value.trim();
+  const lname = document.getElementById('reg-lname').value.trim();
+  const phone = document.getElementById('reg-phone').value.trim();
+  const pass  = document.getElementById('reg-password').value;
+  if (!fname || !phone || !pass) { showToast('Please fill in required fields.', 'error'); return; }
+  if (pass.length < 8) { showToast('Password must be at least 8 characters.', 'error'); return; }
+  const user = { name: fname + ' ' + lname, phone, email: document.getElementById('reg-email').value.trim(), city: document.getElementById('reg-city').value.trim() };
+  localStorage.setItem('kf_user', JSON.stringify(user));
+  localStorage.setItem('kf_logged_in', 'true');
+  showToast('Account created successfully! Welcome 🎉', 'success');
+  setTimeout(() => window.location.href = 'dashboard.html', 1200);
+});
+
+/* ── OTP Flow ───────────────────────────────────────────────────────── */
+let otpSent = false;
+
+document.getElementById('otp-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (!otpSent) {
+    const phone = document.getElementById('otp-phone-input').value.trim();
+    if (!phone) { showToast('Please enter your mobile number.', 'error'); return; }
+    otpSent = true;
+    document.getElementById('otp-phone-group').style.display = 'none';
+    document.getElementById('otp-digits-group').style.display = 'flex';
+    document.getElementById('otp-btn').innerHTML = '<span class="material-symbols-outlined" style="font-size:20px">verified</span> Verify OTP';
+    document.getElementById('otp-hint').textContent = 'Enter the 6-digit code sent to ' + phone;
+    document.getElementById('otp-resend').style.display = 'block';
+    showToast('OTP sent to ' + phone + ' (demo: use any 6 digits)', 'success');
+    const firstInput = document.querySelector('.otp-input');
+    if (firstInput) firstInput.focus();
+  } else {
+    const digits = [...document.querySelectorAll('.otp-input')].map(i => i.value).join('');
+    if (digits.length < 6) { showToast('Please enter all 6 digits.', 'error'); return; }
+    showToast('OTP verified! Signing you in…', 'success');
+    setTimeout(() => window.location.href = 'dashboard.html', 1200);
+  }
+});
+
+function resendOtp() {
+  showToast('OTP resent! Check your mobile.', 'info');
+}
+
+/* OTP input auto-advance */
+document.querySelectorAll('.otp-input').forEach((input, idx, arr) => {
+  input.addEventListener('input', () => {
+    if (input.value && idx < arr.length - 1) arr[idx + 1].focus();
+  });
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace' && !input.value && idx > 0) arr[idx - 1].focus();
+  });
+});
+</script>
 </body>
 </html>
